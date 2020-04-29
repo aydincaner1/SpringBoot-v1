@@ -1,6 +1,7 @@
 package com.caner.issuemanagement.service;
 
 
+import com.caner.issuemanagement.dto.ProjectDto;
 import com.caner.issuemanagement.entity.Issue;
 import com.caner.issuemanagement.entity.Project;
 import org.springframework.data.domain.Page;
@@ -12,13 +13,13 @@ public interface ProjectService {
 
     Project save(Project project);
 
-    Project getById(Long id);
+    ProjectDto getById(Long id);
 
-    List<Project> getByProjectCode(String projectCode);
+    ProjectDto getByProjectCode(String projectCode);
 
-    List<Project> getByProjectCodeContains(String projectCode);
+    List<ProjectDto> getByProjectCodeContains(String projectCode);
 
-    Page<Project> getAllPageable(Pageable pageable);
+    Page<ProjectDto> getAllPageable(Pageable pageable);
 
     Boolean delete (Project project);
 }

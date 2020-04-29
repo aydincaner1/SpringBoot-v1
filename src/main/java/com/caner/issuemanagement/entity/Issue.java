@@ -28,7 +28,7 @@ public class Issue extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    @Column(name = "description")
+    @Column(name = "issue_status")
     @Enumerated(EnumType.STRING)
     private IssueStatus issueStatus;
 

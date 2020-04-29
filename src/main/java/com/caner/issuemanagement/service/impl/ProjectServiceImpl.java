@@ -1,8 +1,10 @@
 package com.caner.issuemanagement.service.impl;
 
+import com.caner.issuemanagement.dto.ProjectDto;
 import com.caner.issuemanagement.entity.Project;
 import com.caner.issuemanagement.service.ProjectService;
 import com.caner.issuemanagement.repository.ProjectRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,9 +16,11 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
+    private final ModelMapper modelMapper;
 
-    public  ProjectServiceImpl(ProjectRepository projectRepository){
+    public  ProjectServiceImpl(ProjectRepository projectRepository, ModelMapper modelMapper){
         this.projectRepository=projectRepository;
+        this.modelMapper=modelMapper;
     }
 
     @Override
@@ -28,22 +32,23 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project getById(Long id) {
-        return projectRepository.getOne(id);
+    public ProjectDto getById(Long id) {
+        Project p = projectRepository.getOne(id);
+        return modelMapper.map(p,ProjectDto.class);
     }
 
     @Override
-    public List<Project> getByProjectCode(String projectCode) {
+    public ProjectDto getByProjectCode(String projectCode) {
         return null;
     }
 
     @Override
-    public List<Project> getByProjectCodeContains(String projectCode) {
+    public List<ProjectDto> getByProjectCodeContains(String projectCode) {
         return null;
     }
 
     @Override
-    public Page<Project> getAllPageable(Pageable pageable) {
+    public Page<ProjectDto> getAllPageable(Pageable pageable) {
         return null;
     }
 
