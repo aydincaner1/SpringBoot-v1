@@ -1,8 +1,10 @@
 package com.caner.issuemanagement.service.impl;
 
+import com.caner.issuemanagement.dto.UserDto;
 import com.caner.issuemanagement.entity.User;
 import com.caner.issuemanagement.repository.UserRepository;
 import com.caner.issuemanagement.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,9 +13,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
 
-    public UserServiceImpl(UserRepository userRepository){
+    public UserServiceImpl(UserRepository userRepository,ModelMapper modelMapper){
         this.userRepository=userRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
@@ -27,8 +31,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getById(Long id) {
-        return null;
+    public UserDto getById(Long id) {
+        User u = userRepository.getOne(id);
+        return modelMapper.map(u, UserDto.class);
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ProjectService {
 
-    Project save(Project project);
+    ProjectDto save(ProjectDto project);
 
     ProjectDto getById(Long id);
 
