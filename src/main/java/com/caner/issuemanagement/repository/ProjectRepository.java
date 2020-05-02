@@ -12,7 +12,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     Project getByProjectCode(String projectCode);
 
-    //Project getByProjectName(String projectName);
+    Project getByProjectName(String projectName);
 
     Project getByProjectCodeAndIdNot (String projectCode, Long id);
 

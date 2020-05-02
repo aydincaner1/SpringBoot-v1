@@ -28,4 +28,12 @@ public class ProjectController {
         return ResponseEntity.ok(projectServiceImpl.save(project));
     }
 
+    //@RequestMapping(path = "/project", method = RequestMethod.PUT)
+    @PutMapping("/{id}")
+    public ResponseEntity<ProjectDto> updateProject(@PathVariable("id") Long id,@Valid @RequestBody ProjectDto project){
+    return ResponseEntity.ok(projectServiceImpl.update(id,project));
+    }
+
+
+
 }

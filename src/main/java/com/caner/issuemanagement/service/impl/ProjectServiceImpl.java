@@ -2,8 +2,8 @@ package com.caner.issuemanagement.service.impl;
 
 import com.caner.issuemanagement.dto.ProjectDto;
 import com.caner.issuemanagement.entity.Project;
-import com.caner.issuemanagement.service.ProjectService;
 import com.caner.issuemanagement.repository.ProjectRepository;
+import com.caner.issuemanagement.service.ProjectService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,11 +29,7 @@ public class ProjectServiceImpl implements ProjectService {
             throw new IllegalArgumentException("Project Code cannot be null");
         }*/
 
-        Project projectCheck = projectRepository.getByProjectCode(project.getProjectCode());
-       // Project projectName = projectRepository.getByProjectName(project.getProjectName());
-
-        if (projectCheck !=null)
-            throw new IllegalArgumentException("Project code already exist");
+        LayerProjectCode(project);
 
         Project p = modelMapper.map(project, Project.class);
         p = projectRepository.save(p);
@@ -65,5 +61,32 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Boolean delete(Project project) {
         return null;
+    }
+
+    @Override
+    public ProjectDto update(Long id, ProjectDto project) {
+        Project projectDb = projectRepository.getOne(id);
+        if (projectDb == null)
+            throw new IllegalArgumentException("Project does not exist ID: "+id);
+
+        //Project projectCheck = projectRepository.getByProjectCode(project.getProjectCode());
+        //if (projectCheck.getId() != projectDb.getId()) -- yerine repoyu kullandım
+        Project projectCheck = projectRepository.getByProjectCodeAndIdNot(project.getProjectCode(), id);
+        if (projectCheck != null)
+            throw new IllegalArgumentException("Project code already exist");
+
+        projectDb.setProjectCode(project.getProjectCode());
+        projectDb.setProjectName(project.getProjectName());
+
+        projectRepository.save(projectDb);
+        return modelMapper.map(projectDb,ProjectDto.class);
+    }
+    //encapsulation ile refactor yaparak tekrarlanan yerlerde fonsiyon donmesini sagladım.
+    private void LayerProjectCode(ProjectDto project) {
+        Project projectCheck = projectRepository.getByProjectCode(project.getProjectCode());
+
+        if (projectCheck != null )
+            throw new IllegalArgumentException("Project code already exist");
+
     }
 }
