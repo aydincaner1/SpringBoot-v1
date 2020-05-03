@@ -63,6 +63,11 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
+    public Boolean delete(Long id) {
+        projectRepository.deleteById(id);
+        return true;
+    }
+
     @Override
     public ProjectDto update(Long id, ProjectDto project) {
         Project projectDb = projectRepository.getOne(id);
