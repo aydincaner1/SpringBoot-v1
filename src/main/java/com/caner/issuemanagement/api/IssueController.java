@@ -3,6 +3,7 @@ package com.caner.issuemanagement.api;
 import com.caner.issuemanagement.dto.IssueDto;
 import com.caner.issuemanagement.service.impl.IssueServiceImpl;
 import com.caner.issuemanagement.util.ApiPaths;
+import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(ApiPaths.IssueCtrl.CTRL)
+@Api(value="ApiPaths.IssueCtrl.CTRL",description = "Issue APIs")
 public class IssueController {
 
     private final IssueServiceImpl issueServiceImpl;

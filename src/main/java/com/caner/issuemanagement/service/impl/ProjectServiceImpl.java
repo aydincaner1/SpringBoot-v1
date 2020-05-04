@@ -28,7 +28,6 @@ public class ProjectServiceImpl implements ProjectService {
         /*if(project.getProjectCode()==null) {
             throw new IllegalArgumentException("Project Code cannot be null");
         }*/
-
         LayerProjectCode(project);
 
         Project p = modelMapper.map(project, Project.class);
