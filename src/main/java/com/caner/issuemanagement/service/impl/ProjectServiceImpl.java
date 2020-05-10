@@ -91,6 +91,5 @@ public class ProjectServiceImpl implements ProjectService {
 
         if (projectCheck != null )
             throw new IllegalArgumentException("Project code already exist");
-
     }
 }
