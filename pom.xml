@@ -69,33 +69,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
+			<!--<exclusions>
+			&lt;!&ndash;	<exclusion>
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
+				</exclusion>&ndash;&gt;
+			</exclusions>-->
 		</dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.6.2</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
 			<version>2.17.0</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
+		</dependency>-->
+		<!--<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>2.0.2-beta</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 
 		<!--<dependency>
 			<groupId>org.springframework.security</groupId>
