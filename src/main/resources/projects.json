@@ -1,0 +1,13 @@
+[
+  {
+    "_class": "com.caner.issuemanagement.entity.Project",
+    "projectCode" : "Caner121",
+    "projectName" : "Deneme datam"
+  },
+
+  {
+    "_class": "com.caner.issuemanagement.entity.Project",
+    "projectCode" : "Caner1032",
+    "projectName" : "json test datam 2"
+  }
+]
