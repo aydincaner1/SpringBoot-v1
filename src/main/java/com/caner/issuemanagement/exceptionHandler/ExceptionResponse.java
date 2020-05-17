@@ -1,4 +1,4 @@
-package com.caner.issuemanagement.ExceptionHandle;
+package com.caner.issuemanagement.exceptionHandler;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
