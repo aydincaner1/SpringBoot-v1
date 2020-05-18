@@ -26,12 +26,12 @@ public class IssueManagementApplication {
 	}
 
 	//json test datam icin jackson bean
-	@Bean
+	/*@Bean
 	public Jackson2RepositoryPopulatorFactoryBean repositoryPopulator(){
 		Jackson2RepositoryPopulatorFactoryBean factory = new Jackson2RepositoryPopulatorFactoryBean();
 		factory.setResources(new Resource[] {new ClassPathResource("projects.json")});
 		return factory;
-	}
+	}*/
 
 
 }
