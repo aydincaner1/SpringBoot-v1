@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="uk" id="6">
+        <addForeignKeyConstraint baseColumnNames="manager_user_id" baseTableName="project"
+                                 baseTableSchemaName="public" constraintName="fk_manager_user"
+                                 referencedColumnNames="id" referencedTableName="users"
+                                 referencedTableSchemaName="public"/>
+
+        <addForeignKeyConstraint baseColumnNames="assignee_user_id" baseTableName="issue"
+                                 baseTableSchemaName="public" constraintName="fk_issue_user"
+                                 referencedColumnNames="id" referencedTableName="users"
+                                 referencedTableSchemaName="public"/>
+
+        <addForeignKeyConstraint baseColumnNames="issue_id" baseTableName="issue_history"
+                                 baseTableSchemaName="public" constraintName="fk_issueid"
+                                 referencedColumnNames="id" referencedTableName="issue"
+                                 referencedTableSchemaName="public"/>
+
+        <addForeignKeyConstraint baseColumnNames="assignee_user_id" baseTableName="issue_history"
+                                 baseTableSchemaName="public" constraintName="fk_userid"
+                                 referencedColumnNames="id" referencedTableName="users"
+                                 referencedTableSchemaName="public"/>
+<!--
+        <addForeignKeyConstraint baseColumnNames="id" baseTableName="statu"
+                                 baseTableSchemaName="public" constraintName="fk_statu"
+                                 referencedColumnNames="id" referencedTableName="issue"
+                                 referencedTableSchemaName="public"/>-->
+    </changeSet>
+</databaseChangeLog>

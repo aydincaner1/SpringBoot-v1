@@ -27,7 +27,7 @@ public class ProjectController {
     @ApiOperation(value = "Get By Id Operation", response = ProjectDto.class)
     public ResponseEntity<ProjectDto> getById(@PathVariable(value = "id", required = true) Long id) {
         //log.info("ProjectController -> GetById ");
-        log.debug("ProjectControllerDebugMode -> GetById -> PARAM" +id);
+        //log.debug("ProjectControllerDebugMode -> GetById -> PARAM" +id);
         ProjectDto projectDto = projectServiceImpl.getById(id);
         return ResponseEntity.ok(projectDto);
     }

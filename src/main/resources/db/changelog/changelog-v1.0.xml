@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+ <changeSet  author="caner" id="1">
+ <sqlFile
+         dbms="postgres"
+         path="db/changelog/sql/insertiki.sql"
+ />
+ </changeSet>
+<!--
+    <changeSet author="caner" id="2">
+        <sql>
+            insert into project (id,project_code,project_name) values (22,'Lique','Testname')
+        </sql>
+    </changeSet>-->
+</databaseChangeLog>

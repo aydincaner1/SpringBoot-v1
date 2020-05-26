@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+   <!-- <changeSet  author="modify" id="1">
+    <ext:modifyColumn tableName="issue">
+    <column name="status"
+           type="ENUM('OPEN','CLOSED','IN_REVIEW','IN_PROGRESS','RESOLVED')"
+           defaultValue="OPEN">
+        <constraints nullable="false"/>
+    </column>
+</ext:modifyColumn>
+    </changeSet>-->
+
+
+    <changeSet author="projecttable" id="2">
+        <createTable tableName="project">
+        <column autoIncrement="true" name="id" type="bigint">
+            <constraints primaryKey="true"  unique="true"/>
+        </column>
+            <column name="project_code" type="varchar(30)"/>
+            <column name="project_name" type="varchar(300)"/>
+            <column name="manager_user_id" type="bigint"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="varchar(100)"/>
+            <column name="updated_at" type="timestamp"/>
+            <column name="updated_by" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="issue" id="3">
+        <sql>CREATE TYPE IssueStatus AS ENUM ('OPEN','CLOSED','IN_REVIEW','IN_PROGRESS','RESOLVED')</sql>
+        <createTable tableName="issue">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints primaryKey="true"  unique="true"/>
+            </column>
+            <column name="description" type="varchar(100)"/>
+            <column name="details" type="varchar(300)"/>
+            <column name="date" type="timestamp"/>
+            <column name="issue_status" type="varchar(50)" />
+            <column name="assignee_user_id" type="bigint"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="varchar(100)"/>
+            <column name="updated_at" type="timestamp"/>
+            <column name="updated_by" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet author="issue_history_table" id="4">
+        <createTable tableName="issue_history">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="issue_id" type="bigint"/>
+            <column name="description" type="varchar(300)"/>
+            <column name="date" type="timestamp"/>
+            <column name="issue_status" type="varchar(50)"/>
+            <!--<column name="issue_status" type="enum('OPEN','CLOSED','IN_REVIEW','IN_PROGRESS','RESOLVED')"/>-->
+            <column name="details" type="varchar(50)"/>
+            <column name="assignee_user_id" type="bigint"/>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="varchar(100)"/>
+            <column name="updated_at" type="timestamp"/>
+            <column name="updated_by" type="varchar(100)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="userstable" id="5">
+    <createTable tableName="users">
+        <column autoIncrement="true" name="id" type="bigint">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="uname" type="varchar(30)">
+        <constraints unique="true"/>
+        </column>
+        <column name="pwd" type="varchar(30)"/>
+        <column name="date" type="timestamp"/>
+        <column name="name_Surname" type="varchar(100)"/>
+        <column name="email" type="varchar(50)"/>
+        <column name="assignee_user_id" type="bigint"/>
+        <column name="created_at" type="timestamp"/>
+        <column name="created_by" type="varchar(100)"/>
+        <column name="updated_at" type="timestamp"/>
+        <column name="updated_by" type="varchar(100)"/>
+    </createTable>
+    </changeSet>
+
+  <!--  <changeSet author="statu" id="7">
+        <createTable tableName="statu">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="type" type="varchar(30)">
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="varchar(100)"/>
+            <column name="updated_at" type="timestamp"/>
+            <column name="updated_by" type="varchar(100)"/>
+        </createTable>
+
+    </changeSet>-->
+
+</databaseChangeLog>
+

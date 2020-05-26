@@ -5,9 +5,12 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
+
+/*
+@Configuration
+@ComponentScan(basePackages = "com.caner")
+@PropertySource(value = {"classpath:src/resources/aplication.properties"})
+*/
 
 @SpringBootApplication
 
@@ -24,6 +27,7 @@ public class IssueManagementApplication {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		return modelMapper;
 	}
+
 
 	//json test datam icin jackson bean
 	/*@Bean
