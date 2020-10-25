@@ -20,7 +20,6 @@ public class ProjectController {
     private final ProjectServiceImpl projectServiceImpl;
 
     public ProjectController(ProjectServiceImpl projectServiceImpl) {
-
         this.projectServiceImpl = projectServiceImpl;
     }
 
