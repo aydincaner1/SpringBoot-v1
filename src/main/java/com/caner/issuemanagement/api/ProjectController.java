@@ -13,13 +13,14 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(ApiPaths.ProjectCtrl.CTRL)
-@Api(value="ApiPaths.ProjectCtrl.CTRL",description = "Project APIs")
+@Api(value = "ApiPaths.ProjectCtrl.CTRL", description = "Project APIs")
 @Slf4j
 public class ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;
 
     public ProjectController(ProjectServiceImpl projectServiceImpl) {
+
         this.projectServiceImpl = projectServiceImpl;
     }
 

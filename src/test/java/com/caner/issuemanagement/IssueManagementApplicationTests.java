@@ -10,4 +10,8 @@ public class IssueManagementApplicationTests {
 	public void contextLoads() {
 	}
 
+/*
+	public IssueManagementApplicationTests(){
+	}
+	*/
 }
