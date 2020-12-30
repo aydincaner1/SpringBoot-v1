@@ -29,7 +29,7 @@ public class IssueServiceImpl implements IssueService {
     @Override
     public IssueDto save(IssueDto issue) {
         if (issue.getDate()== null)
-            throw new IllegalArgumentException("Issue date cannot be null");
+            throw new IllegalArgumentException("issue date cannot be null");
 /*
         if (issue.getIssueStatus()== null)
             throw new IllegalArgumentException("Issue statu cannot be null");*/
